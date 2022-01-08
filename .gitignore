@@ -130,3 +130,7 @@ dmypy.json
 
 # Intellij idea
 .idea/
+
+
+# Large datasets
+./data/all_news.csv

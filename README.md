@@ -8,9 +8,9 @@ Todo:
 
 ---
 - [x] Add a nmf class adapted form sklearn
-- [ ] Add datasets 
+- [x] Add datasets 
   - [x] Tripadvisor reviews (kaggle)
-  - [ ] All news dataset (kaggle)
+  - [x] All news dataset (kaggle)
 
 ## Experimental
 
