@@ -33,4 +33,8 @@ Todo:
       • Datasets used (names and samples) 
       • Results (including samples) and evaluation
       • References 
+        - https://arxiv.org/pdf/2105.13440.pdf
+        - https://methods.sagepub.com/base/download/DatasetStudentGuide/non-negative-matrix-factorization-in-news-2016
+        - https://sci-hub.hkvisa.net/10.3233/jifs-191690
+        
 
