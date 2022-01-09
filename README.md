@@ -25,12 +25,12 @@ Todo:
 ## Docs
 
 ---
-- [ ] Start word document and write introduction
+- [ ] Start word document and write introduction 10 pages
   - Content: 
       • Importance and practical applications of the algorithm
-      • The algorithm general presentation
-      • Known results and issues
-      • Datasets used (names and samples)
+      • The algorithm general presentation 
+      • Known results and issues 
+      • Datasets used (names and samples) 
       • Results (including samples) and evaluation
-      • References
+      • References 
 
