@@ -15,11 +15,22 @@ Todo:
 ## Experimental
 
 ---
-- [ ] Integrate wandb for logging
-- [ ] Define the task of subdomain topic modeling
+- [x] Integrate wandb for logging
+- [x] Adapt for new ds
+- [ ] Log relations in results and create report !!!
+- [ ] Define the task of subdomain topic modeling (the whole project)
+- [ ] Print topic probabilities
+- [ ] Report results
 
-## Results
+## Docs
 
 ---
-- [ ] EDA over results
-- [ ] Report results
+- [ ] Start word document and write introduction
+  - Content: 
+      • Importance and practical applications of the algorithm
+      • The algorithm general presentation
+      • Known results and issues
+      • Datasets used (names and samples)
+      • Results (including samples) and evaluation
+      • References
+
