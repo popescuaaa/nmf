@@ -19,6 +19,7 @@ class NMF:
 
     def __init__(self,
                  csv_path: str,
+                 outdir: str,
                  topics: int = 10,
                  iterations: int = 100,
                  words: int = 10,
@@ -27,6 +28,7 @@ class NMF:
                  max_freq: int = 20):
 
         self.csv_path = csv_path
+        self.outdir = outdir
         self.topics = topics
         self.iterations = iterations
         self.words = words
@@ -39,8 +41,8 @@ class NMF:
 
         # build corpus
         self.corpus = self.acquire_data()
-        self.corpus = self.corpus.values[:, :1]
-        self.corpus = [x[0] for x in self.corpus]
+        self.corpus = self.corpus.values[:, :3]
+        self.corpus = [x[1] for x in self.corpus]
         self.corpus = np.array(self.corpus)
 
         # build term document matrix
@@ -63,12 +65,11 @@ class NMF:
         if self.write_output:
             self.write_results()
 
-    @staticmethod
-    def write_json(filename, obj):
-        if not os.path.exists('results'):
-            os.makedirs('results')
+    def write_json(self, filename, obj):
+        if not os.path.exists(self.outdir):
+            os.makedirs(self.outdir)
 
-        with open(os.path.join('results', filename), 'w') as out:
+        with open(os.path.join(self.outdir, filename), 'w') as out:
             json.dump(obj, out)
 
     def acquire_data(self) -> pd.DataFrame:
@@ -76,6 +77,7 @@ class NMF:
             Acquire data from the csv file
         """
         raw_data = pd.read_csv(self.csv_path)
+        print(raw_data)
         return raw_data
 
     def get_tfidf(self, topics, n_words):
@@ -138,7 +140,3 @@ class NMF:
         self.write_json('doc_to_topics.json', self.docs_to_topics)
         self.write_json('topic_to_words.json', self.topics_to_words)
 
-
-# Small test for the class
-if __name__ == '__main__':
-    nmf = NMF(csv_path='../data/tripadvisor_hotel_reviews.csv', write_output=True)
