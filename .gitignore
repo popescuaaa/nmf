@@ -134,3 +134,4 @@ dmypy.json
 
 # Large datasets
 ./data/all_news.csv
+./wandb
