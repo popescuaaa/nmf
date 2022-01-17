@@ -21,11 +21,11 @@ class NMF:
                  csv_path: str,
                  outdir: str,
                  topics: int = 10,
-                 iterations: int = 100,
+                 iterations: int = 1000,
                  words: int = 10,
                  write_output: bool = True,
                  min_count: int = 10,
-                 max_freq: int = 20):
+                 max_freq: int = 1000):
 
         self.csv_path = csv_path
         self.outdir = outdir
@@ -105,13 +105,15 @@ class NMF:
         """
         return decomposition.NMF(n_components=self.topics,
                                  random_state=1,
-                                 max_iter=self.iterations)
+                                 max_iter=self.iterations,
+                                 init="nndsvd")
+
 
     def get_documents_by_topics(self):
         np.seterr(divide='ignore', invalid='ignore')
         docs_by_topics = self.nmf.fit_transform(self.tdm)
         normalized = docs_by_topics / np.sum(docs_by_topics, axis=1, keepdims=True)
-        return np.nan_to_num(normalized)  # zero out nan's
+        return np.nan_to_num(normalized)
 
     def get_doc_to_topics(self):
         """
